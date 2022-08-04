@@ -50,7 +50,7 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void createProductGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("product/create.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("product/create_Product.jsp");
         ArrayList<Category> categories = categoryService.findAll();
         request.setAttribute("categories", categories);
         requestDispatcher.forward(request, response);
@@ -60,7 +60,7 @@ public class ProductServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = productService.findById(id);
         ArrayList<Category> categories = categoryService.findAll();
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("product/edit.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("product/edit_Product.jsp");
         request.setAttribute("p", product);
         request.setAttribute("categories", categories);
         requestDispatcher.forward(request, response);
